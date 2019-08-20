@@ -8,6 +8,12 @@ import com.lambdaschool.congressfragmentsproject.api.CongresspersonDetails
 import com.lambdaschool.congressfragmentsproject.api.CongresspersonOverview
 import java.util.ArrayList
 
+//step 1. grok starter code
+//step 2. create list fragment
+//step 3. attach list fragment to main activity
+//step 4. add second fragment for tables
+//step 5. add second activity for phones
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
