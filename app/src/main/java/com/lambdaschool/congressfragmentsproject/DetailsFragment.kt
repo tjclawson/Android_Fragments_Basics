@@ -50,7 +50,10 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val memberID = arguments?.getString("key")
         val member = CongressDao.getMemberDetails(memberID.toString())
-        middlename.text = member.middleName
+        firstname.text = member.firstName
+        lastname.text = member.lastName
+        gender.text = member.gender
+
     }
 
 
