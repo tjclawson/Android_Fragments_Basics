@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), CongresspersonOverviewFragment.OnListF
         fragment.arguments = bundle
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.initial_layout, fragment)
+            .replace(R.id.frame_layout, fragment)
             .addToBackStack(null)
             .commit()
 
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), CongresspersonOverviewFragment.OnListF
 
         val fragment = CongresspersonOverviewFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.initial_layout, fragment)
+            .add(R.id.initial_layout, fragment)
             .commit()
 
         // get an overview list for all members of congress
