@@ -1,6 +1,7 @@
 package com.lambdaschool.congressfragmentsproject
 
 import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.lambdaschool.congressfragmentsproject.api.CongressDao
@@ -14,11 +15,31 @@ import java.util.ArrayList
 //step 4. add second fragment for tables
 //step 5. add second activity for phones
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CongresspersonOverviewFragment.OnListFragmentInteractionListener{
+
+    override fun onListFragmentInteraction(item: CongresspersonOverview) {
+        val fragment = DetailsFragment()
+        val bundle = Bundle()
+
+        bundle.putString("key", item.id)
+        fragment.arguments = bundle
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.initial_layout, fragment)
+            .addToBackStack(null)
+            .commit()
+
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val fragment = CongresspersonOverviewFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.initial_layout, fragment)
+            .commit()
 
         // get an overview list for all members of congress
         val allMembers: ArrayList<CongresspersonOverview> = CongressDao.allMembers
